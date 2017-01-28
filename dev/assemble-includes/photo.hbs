@@ -1,0 +1,65 @@
+  {{#is amp true}}
+    {{#photo}}
+      {{#is type "text"}}
+    <div class="row m-b-lg">
+      <div class="m-l m-r">
+        {{#each html}}
+            {{{ this }}}
+        {{/each}}
+      </div>
+    </div>
+      {{else}}
+    <div class="row m-b-lg">
+      <figure class="card m-l m-r ">
+      <amp-img src="{{path}}" alt="{{caption}}" width="{{w}}" height="{{h}}" layout="responsive"></amp-img>
+        <div class="card-block">
+          <figcaption class="card-title font--6">{{{caption}}}</figcaption>
+          <p class="card-text font--7">{{#if lens}}Taken lens: {{lens}}&emsp;{{/if}}{{{ general.copyright }}}</p>
+        </div>
+      </figure>
+    </div>
+    {{/is}}
+    {{/photo}}
+  {{else}}
+    {{#photo}}
+      {{#is type "text"}}
+    <div class="row m-b-lg">
+      <div class="m-l m-r">
+        {{#each html}}
+            {{{ this }}}
+        {{/each}}
+      </div>
+    </div>
+      {{else}}
+      {{#isnt horizontalType "right"}}
+    <div class="row m-b-lg">
+      {{/isnt}}
+      {{#is horizontal "yes"}}
+        <div class="col-sm-6">
+      {{else}}
+        {{#is type "portrait"}}<div class=" col-md-offset-2 col-md-8">{{/is}}
+      {{/is}}
+      {{#is horizontal "yes"}}
+      <figure class="card">
+      {{else}}
+      <figure class="card m-l m-r ">
+      {{/is}}
+        <img class="card-img{{#is horizontal "yes"}}{{#if caption}}-top{{/if}}{{/is}}" src="{{path}}" alt="{{alt}}" style="width:100%" />
+        {{#if caption}}
+        <div class="card-block">
+          <figcaption class="card-title font--5{{#is horizontal "yes"}} m-b-hf{{/is}}">{{{caption}}}</figcaption>
+          <p class="card-text font--7">{{#if lens}}Taken lens: {{lens}}&emsp;{{/if}}{{{ ../../general.copyright }}}</p>
+        </div>
+        {{/if}}
+      </figure>
+      {{#is horizontal "yes"}}
+        </div>
+      {{else}}
+        {{#is type "portrait"}}</div>{{/is}}
+      {{/is}}
+      {{#isnt horizontalType "left"}}
+    </div>
+      {{/isnt}}
+      {{/is}}
+    {{/photo}}
+  {{/is}}

@@ -1,0 +1,75 @@
+---
+layout: default.hbs
+has-amp-page: true
+category: Articles
+category-url: /writings/
+p: 1
+article-url: /writings/161217/
+n:       <%= general.writings161217 %>
+n161217: <%= general.writings161217 %>
+d:       <%= general.writings161217.pages.p1 %>
+d161217: <%= general.writings161217.pages.p1 %>
+sentence-before: <%= general.writings161217.sentenceBefore %>
+sentence-after: <%= general.writings161217.sentenceAfter %>
+photo: <%= general.writings161217.photo %>
+---
+
+<div class="container">
+
+  <article>
+
+    <div class="row">
+
+      <div class="jumbotron">
+        <p class="font--2 p-b h2">
+          {{{ n.title-en }}}
+        </p>
+        <h2 class="lead">
+          {{ d.article-title }}
+        </h2>
+        <hr class="m-y-md" />
+        <div class="photo-anamorphic -p-a  p-b-md">
+          <div class="-p-a__part">
+            {{#if amp}}
+              <amp-img class="-p-a__image" src="{{ n.og-img }}" alt="{{{ n.og-title }}}" width="300" height="200" layout="responsive"></amp-img>
+            {{else}}
+              <img class="-p-a__image" src="{{ n.og-img }}" alt="{{{ n.og-title }}}" />
+            {{/if}}
+          </div>
+        </div>
+        {{#each n.article-description }}
+        <p>
+          {{{ this }}}
+        </p>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="row m-b-lg">
+      <div class="m-l m-r">
+        {{#each sentence-before }}
+        <p class="font--6">
+          {{{ this }}}
+        </p>
+        {{/each}}
+      </div>
+    </div>
+
+    {{> photo }}
+
+    <div class="row m-b-lg">
+      <div class="m-l m-r">
+
+        <div class="m-b-lg">
+          {{#each sentence-after }}
+          <p class="font--6">
+            {{{ this }}}
+          </p>
+        {{/each}}
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+</div>

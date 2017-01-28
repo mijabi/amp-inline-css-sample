@@ -1,0 +1,51 @@
+/**
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+            Version 2, December 2004
+
+Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+Copyright (C) 2017 PULP.Photo
+
+Everyone is permitted to copy and distribute verbatim or modified
+copies of this license document, and changing it is allowed as long
+as the name is changed.
+
+    DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+0. You just DO WHAT THE FUCK YOU WANT TO.
+*/
+
+.photo-anamorphic {} .-p-a {
+  &__part {
+    overflow: hidden;
+    @include devices {
+      margin: 0 -1em;
+    }
+  }
+  &__image {
+    width: 100%;
+    @include small-devices {
+      margin: 0 0;
+    }
+    @include medium-devices {
+      margin: -6% 0;
+    }
+    @include large-devices {
+      margin: -14% 0;
+    }
+    @include extra-large-devices {
+      margin: -15% 0;
+    }
+    &--bottom {
+      @include medium-devices {
+        margin: -12% 0 0;
+      }
+      @include large-devices {
+        margin: -28% 0 0;
+      }
+      @include extra-large-devices {
+        margin: -30% 0 0;
+      }
+    }
+  }
+}
